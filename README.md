@@ -18,16 +18,16 @@ It is recommended to use a virtual environment to manage dependencies. Follow th
 
 1. **Create a Virtual Environment**:
    ```sh
-   python -m venv venv
+   python -m venv myenv
     ```
 2. **Activate the Virtual Environment**
     - on Windows
     ```sh
-    venv\Scripts\activate
+    myenv\Scripts\activate
     ```
     - on Mac
     ```sh
-    source venv/bin/activate
+    source myenv/bin/activate
     ```
 3. **Install Dependencies**
     ```sh
@@ -47,6 +47,7 @@ Books
 Others
 
 ## How to Use
+
     ```sh
     python proto.py
     ```
