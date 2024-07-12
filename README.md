@@ -23,7 +23,7 @@ It is recommended to use a virtual environment to manage dependencies. Follow th
 2. **Activate the Virtual Environment**
     - on Windows
     ```sh
-    myenv\Scripts\activate
+    myenv\\Scripts\\activate
     ```
     - on Mac
     ```sh
