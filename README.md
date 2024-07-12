@@ -19,20 +19,20 @@ It is recommended to use a virtual environment to manage dependencies. Follow th
 1. **Create a Virtual Environment**:
    ```sh
    python -m venv venv
-
+    ```
 2. **Activate the Virtual Environment**
     - on Windows
     ```sh
     venv\Scripts\activate
-
+    ```
     - on Mac
     ```sh
     source venv/bin/activate
-
+    ```
 3. **Install Dependencies**
     ```sh
     pip install selenium beautifulsoup4
-
+    ```
 ## Script Description
 Functions
 download_publications(professor): This function takes the name of a professor as input, navigates the MOST website, and extracts publication information for that professor. The function returns two lists:
