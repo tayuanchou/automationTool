@@ -4,9 +4,10 @@ from bs4 import BeautifulSoup
 import time
 import requests
 
+
 def download_publications(professor):
     driver = webdriver.Chrome()
-    driver.get("https://www.most.gov.tw/")
+    driver.get("https://www.nstc.gov.tw/")
     search = driver.find_element_by_link_text("研究人才查詢")
     search.click()
 
@@ -20,7 +21,8 @@ def download_publications(professor):
     Econ.select_by_value("FA04E021")
     link = driver.find_element_by_name("send")
     link.click()
-    page = Select(driver.find_element_by_xpath('//*[@id="zone.content11"]/div/div[1]/select'))
+    page = Select(driver.find_element_by_xpath(
+        '//*[@id="zone.content11"]/div/div[1]/select'))
     page.select_by_value("100")
     time.sleep(3)
     prof = driver.find_element_by_partial_link_text(professor)
@@ -96,11 +98,12 @@ if __name__ == "__main__":
                     "year": article["year"],
                     "title": article["title"],
                     "journal": article["journal"]
-            })
+                })
         if periodicals:
             print("一.期刊論文")
         for periodical in periodicals:
-            print(periodical["author"] + ". " + periodical["year"] + ". \"" + periodical["title"] + "\" " + periodical["journal"])
+            print(periodical["author"] + ". " + periodical["year"] +
+                  ". \"" + periodical["title"] + "\" " + periodical["journal"])
 
         special_issues = []
         for article in articles[1]:
@@ -114,7 +117,8 @@ if __name__ == "__main__":
         if special_issues:
             print("二.專書論文")
         for special_issue in special_issues:
-            print(special_issue["author"] + ". " + special_issue["year"] + ". \"" + special_issue["title"] + "\" " + special_issue["journal"])
+            print(special_issue["author"] + ". " + special_issue["year"] +
+                  ". \"" + special_issue["title"] + "\" " + special_issue["journal"])
 
         books = []
         for article in articles[1]:
@@ -128,7 +132,8 @@ if __name__ == "__main__":
         if books:
             print("三.專書")
         for book in books:
-            print(book["author"] + ". " + book["year"] + ". \"" + book["title"] + "\" " + book["journal"])
+            print(book["author"] + ". " + book["year"] + ". \"" +
+                  book["title"] + "\" " + book["journal"])
 
         others = []
         for article in articles[1]:
@@ -142,4 +147,5 @@ if __name__ == "__main__":
         if others:
             print("四.其他")
         for other in others:
-            print(other["author"] + ". " + other["year"] + ". \"" + other["title"] + "\" " + other["journal"])
+            print(other["author"] + ". " + other["year"] +
+                  ". \"" + other["title"] + "\" " + other["journal"])
